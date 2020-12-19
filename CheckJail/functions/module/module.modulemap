@@ -1,0 +1,13 @@
+//
+//  module.modulemap
+//  CheckJail
+//
+//  Created by Diego Olmo Cejudo on 8/12/20.
+//
+
+module Functions [system][extern_c] {
+    header "../include/Functions.h"
+    link "z"
+    export *
+}
+

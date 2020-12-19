@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5129E53F258031530025CCEC /* ExtensionString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5129E53E258031520025CCEC /* ExtensionString.swift */; };
 		51BAF351257EE287009E855C /* CheckJail.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 51BAF347257EE287009E855C /* CheckJail.framework */; };
 		51BAF356257EE288009E855C /* CheckJailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BAF355257EE288009E855C /* CheckJailTests.swift */; };
-		51BAF358257EE288009E855C /* CheckJail.h in Headers */ = {isa = PBXBuildFile; fileRef = 51BAF34A257EE287009E855C /* CheckJail.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		51BAF3CD257FC7A7009E855C /* Functions.c in Sources */ = {isa = PBXBuildFile; fileRef = 51BAF3CB257FC7A7009E855C /* Functions.c */; };
+		51BAF3D5257FC84A009E855C /* Check.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51BAF3D4257FC84A009E855C /* Check.swift */; };
+		51BAF3DF257FCA19009E855C /* CheckJail.h in Headers */ = {isa = PBXBuildFile; fileRef = 51BAF34A257EE287009E855C /* CheckJail.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		51BAF3E2257FCA21009E855C /* Functions.h in Headers */ = {isa = PBXBuildFile; fileRef = 51BAF3CA257FC7A7009E855C /* Functions.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,12 +27,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5129E53E258031520025CCEC /* ExtensionString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionString.swift; sourceTree = "<group>"; };
 		51BAF347257EE287009E855C /* CheckJail.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CheckJail.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51BAF34A257EE287009E855C /* CheckJail.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CheckJail.h; sourceTree = "<group>"; };
 		51BAF34B257EE287009E855C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		51BAF350257EE287009E855C /* CheckJailTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CheckJailTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		51BAF355257EE288009E855C /* CheckJailTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckJailTests.swift; sourceTree = "<group>"; };
 		51BAF357257EE288009E855C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		51BAF3C9257FC6D0009E855C /* module.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		51BAF3CA257FC7A7009E855C /* Functions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Functions.h; sourceTree = "<group>"; };
+		51BAF3CB257FC7A7009E855C /* Functions.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Functions.c; sourceTree = "<group>"; };
+		51BAF3D4257FC84A009E855C /* Check.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Check.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +59,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5129E520257FDD470025CCEC /* functions */ = {
+			isa = PBXGroup;
+			children = (
+				51BAF3CB257FC7A7009E855C /* Functions.c */,
+				5129E521257FDD5E0025CCEC /* module */,
+				5129E522257FDD660025CCEC /* include */,
+			);
+			path = functions;
+			sourceTree = "<group>";
+		};
+		5129E521257FDD5E0025CCEC /* module */ = {
+			isa = PBXGroup;
+			children = (
+				51BAF3C9257FC6D0009E855C /* module.modulemap */,
+			);
+			path = module;
+			sourceTree = "<group>";
+		};
+		5129E522257FDD660025CCEC /* include */ = {
+			isa = PBXGroup;
+			children = (
+				51BAF3CA257FC7A7009E855C /* Functions.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
 		51BAF33D257EE287009E855C = {
 			isa = PBXGroup;
 			children = (
@@ -71,7 +106,10 @@
 		51BAF349257EE287009E855C /* CheckJail */ = {
 			isa = PBXGroup;
 			children = (
+				5129E520257FDD470025CCEC /* functions */,
 				51BAF34A257EE287009E855C /* CheckJail.h */,
+				51BAF3D4257FC84A009E855C /* Check.swift */,
+				5129E53E258031520025CCEC /* ExtensionString.swift */,
 				51BAF34B257EE287009E855C /* Info.plist */,
 			);
 			path = CheckJail;
@@ -89,11 +127,12 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		51BAF342257EE287009E855C /* Headers */ = {
+		51BAF3DE257FCA0F009E855C /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				51BAF358257EE288009E855C /* CheckJail.h in Headers */,
+				51BAF3DF257FCA19009E855C /* CheckJail.h in Headers */,
+				51BAF3E2257FCA21009E855C /* Functions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,7 +143,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 51BAF35B257EE288009E855C /* Build configuration list for PBXNativeTarget "CheckJail" */;
 			buildPhases = (
-				51BAF342257EE287009E855C /* Headers */,
+				51BAF3DE257FCA0F009E855C /* Headers */,
 				51BAF343257EE287009E855C /* Sources */,
 				51BAF344257EE287009E855C /* Frameworks */,
 				51BAF345257EE287009E855C /* Resources */,
@@ -147,6 +186,7 @@
 				TargetAttributes = {
 					51BAF346257EE287009E855C = {
 						CreatedOnToolsVersion = 12.2;
+						LastSwiftMigration = 1220;
 					};
 					51BAF34F257EE287009E855C = {
 						CreatedOnToolsVersion = 12.2;
@@ -194,6 +234,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51BAF3D5257FC84A009E855C /* Check.swift in Sources */,
+				51BAF3CD257FC7A7009E855C /* Functions.c in Sources */,
+				5129E53F258031530025CCEC /* ExtensionString.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,7 +311,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -326,7 +369,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -341,6 +384,7 @@
 		51BAF35C257EE288009E855C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = EJZWFX8VCR;
@@ -354,9 +398,12 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULEMAP_FILE = "";
 				PRODUCT_BUNDLE_IDENTIFIER = sssssss.health.cmounityd.CheckJail;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "${SRCROOT}/CheckJail/functions/**";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -365,6 +412,7 @@
 		51BAF35D257EE288009E855C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = EJZWFX8VCR;
@@ -378,9 +426,11 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MODULEMAP_FILE = "";
 				PRODUCT_BUNDLE_IDENTIFIER = sssssss.health.cmounityd.CheckJail;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_INCLUDE_PATHS = "${SRCROOT}/CheckJail/functions/**";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -389,6 +439,7 @@
 		51BAF35F257EE288009E855C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EJZWFX8VCR;
 				INFOPLIST_FILE = CheckJailTests/Info.plist;
@@ -407,6 +458,7 @@
 		51BAF360257EE288009E855C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = EJZWFX8VCR;
 				INFOPLIST_FILE = CheckJailTests/Info.plist;
