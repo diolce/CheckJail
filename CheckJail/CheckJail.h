@@ -2,7 +2,7 @@
 //  CheckJail.h
 //  CheckJail
 //
-//  Created by Diego Olmo Cejudo on 7/12/20.
+//  Created by diolce on 7/12/20.
 //
 
 #import <Foundation/Foundation.h>

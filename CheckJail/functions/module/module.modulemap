@@ -2,7 +2,7 @@
 //  module.modulemap
 //  CheckJail
 //
-//  Created by Diego Olmo Cejudo on 8/12/20.
+//  Created by diolce on 8/12/20.
 //
 
 module Functions [system][extern_c] {

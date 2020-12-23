@@ -2,7 +2,7 @@
 //  Check.swift
 //  CheckJail
 //
-//  Created by Diego Olmo Cejudo on 8/12/20.
+//  Created by diolce on 8/12/20.
 //
 
 import Foundation
@@ -83,14 +83,15 @@ public class Check {
     
     public init () {}
     public func isPortOpen(port:Int) -> Bool {
-        return checkPortOpen(Int16(port))
+        return isPortOpenInSystem(Int16(port))
     }
     
-   
+    //Check Injection
     public func isInjected() -> Bool {
-        return checkForInjection()
+        return hasInjectedDyld()
     }
     
+    //Check forkings
     public func isForking() -> Bool {
         #if !(TARGET_IPHONE_SIMULATOR)
         return isFork()
@@ -99,15 +100,17 @@ public class Check {
         #endif
     }
     
-    public func checkSymLinks() -> Bool {
+    //Check symlinks
+    public func hasSymlinks() -> Bool {
         for symlink in symlinks {
-            if checkJailbreakSymLink(symlink.xorString()) {
+            if isJailbreakSymLink(symlink.xorString()) {
                 return true
             }
         }
         return false
     }
     
+    //Check exists paths
     public func existsPaths() -> Bool {
         for path in paths {
             if FileManager.default.fileExists(atPath: path.xorString()) {
@@ -117,7 +120,8 @@ public class Check {
         return false
     }
     
-    public func checkJailbreakFiles() -> Bool {
+    //Check files jailbreak
+    public func hasFilesJailbreak() -> Bool {
         for path in paths {
             if checkJailbreakFile(path.xorString()) {
                 return true
@@ -126,7 +130,8 @@ public class Check {
         return false
     }
     
-    public func checkPermissionsInRoot() -> Bool {
+    //Check permision for path
+    public func hasPermissionsInRoot() -> Bool {
         for path in pathsPermission {
             if checkPermissions(path.xorString()) {
                 return true
@@ -135,11 +140,13 @@ public class Check {
         return false
     }
     
-    public func write() -> Bool {
-        // Check 2 : Reading and writing in system directories (sandbox violation)
-        let stringToWrite = "Jailbreak Test"
+    //Check write in system directories
+    public func canWrite() -> Bool {
+        //  Reading and writing in system directories (sandbox violation)
+        let stringToWrite = "Jailbreak Test".xorString()
+        let file = "/private/JailbreakTest.txt".xorString()
         do {
-            try stringToWrite.write(toFile:"/private/JailbreakTest.txt", atomically:true, encoding:String.Encoding.utf8)
+            try stringToWrite.xorString().write(toFile:file.xorString(), atomically:true, encoding:String.Encoding.utf8)
             // Device is jailbroken
             return true
         } catch {
@@ -147,7 +154,8 @@ public class Check {
         }
     }
     
-    public func checkCydiaScheme() -> Bool {
+    //Check scheme for cydia
+    public func hasCydia() -> Bool {
         for scheme in schemes {
             if let url = URL(string: scheme.xorString()) {
                 if UIApplication.shared.canOpenURL(url) {

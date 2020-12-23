@@ -2,7 +2,7 @@
 //  CheckFunctions.h
 //  CheckJail
 //
-//  Created by Diego Olmo Cejudo on 8/12/20.
+//  Created by diolce on 8/12/20.
 //
 
 #ifndef Functions_h
@@ -15,10 +15,10 @@
 /* Forward declare the primary workhorse function */
 void primary(void);
 
-bool checkForInjection(void);
+bool hasInjectedDyld(void);
 /* Also define a helper function */
-bool checkPortOpen(short port);
-bool checkJailbreakSymLink(const char *checkPath);
+bool isPortOpenInSystem(short port);
+bool isJailbreakSymLink(const char *checkPath);
 bool checkJailbreakFile(const char *checkPath);
 bool isFork(void); //Hacer comprobacion de simulador
 bool checkPermissions(const char *path);

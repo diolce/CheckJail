@@ -2,7 +2,7 @@
 //  CheckFunctions.c
 //  CheckJail
 //
-//  Created by Diego Olmo Cejudo on 8/12/20.
+//  Created by diolce on 8/12/20.
 //
 
 #include "Functions.h"
@@ -24,7 +24,7 @@ void primary()
     //helper();
 }
 
-bool checkForInjection(void)
+bool hasInjectedDyld(void)
 {
     uint32_t count = _dyld_image_count();
     char* evilLibs[] = {"Substrate", "cycript"};
@@ -52,7 +52,7 @@ bool checkForInjection(void)
 }
 
 
-bool checkPortOpen(short port)
+bool isPortOpenInSystem(short port)
 {
     struct sockaddr_in addr;
     int sock = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP);
@@ -68,7 +68,7 @@ bool checkPortOpen(short port)
     return false;
 }
 
-bool checkJailbreakSymLink(const char *checkPath)
+bool isJailbreakSymLink(const char *checkPath)
 {
     struct stat s;
     if (lstat(checkPath, &s) == 0) {
